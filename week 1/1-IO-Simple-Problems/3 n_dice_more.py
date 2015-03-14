@@ -1,0 +1,13 @@
+player_number = input ("Въведете произволно число:" + "\n")
+n = int(player_number)
+from random import randint
+dice = randint (1, n)
+dice2 = randint (1, n)
+dice3 = randint (1, n)
+print("Зарчето падна на:", dice)
+player_number = input ("Въведете произволно число:" + "\n")
+print("Зарчето падна на:", dice2)
+player_number = input ("Въведете произволно число:" + "\n")
+print("Зарчето падна на:", dice3)
+print()
+print("Сборът на хвърлянията е равен на:", " ", dice+dice2+dice3)
