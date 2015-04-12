@@ -2,10 +2,8 @@ def tail(items):
     
     result = []
 
-    for index in range(1, len(items)):
-        
-        item = items[index]
-        
+    for index in range(1, len(items)):        
+        item = items[index]        
         result += [item]
 
     return result
@@ -14,9 +12,7 @@ def tail(items):
 def take(n, items):
     
     result = []
-
-    for index in range(0, min(n, len(items))):
-        
+    for index in range(0, min(n, len(items))):        
         result += [items[index]]
 
     return result
@@ -26,8 +22,7 @@ def sublist(list1, list2):
     
   n = len(list1)
 
-  while len(list2) != 0:
-      
+  while len(list2) != 0:      
     if take(n, list2) == list1:
         
       return True
