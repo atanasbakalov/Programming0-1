@@ -1,70 +1,32 @@
-def sum_row(matrix, index):
-    
-    return sum(matrix[index])
+def magic_square(square):
 
+    sum_main_diagonal = sum([square[i][i] for i in range(len(square))])
 
-def sum_column(matrix, index):
-    
-    result = 0
+    sec_diagonal = []
+    i = 0
+    j = len(square) - 1
+    for row in square:
+        sec_diagonal.append(square[i][j])
+        i += 1
+        j -= 1
 
-    for row in matrix:
-        result += row[index]
-
-    return result
-
-
-
-def sum_main_diag(matrix):
-    
-    result = 0
-    index = 0
-
-    for row in matrix:       
-        result += matrix[index][index]
-        index += 1
-
-    return result
-
-
-def sum_second_diag(matrix):
-    
-    result = 0
-    index_row = 0
-    index_column = len(matrix[0]) - 1
-
-    for row in matrix:        
-        result += matrix[index_row][index_column]
-        index_row += 1
-        index_column -= 1
-        
-    return result
-
-
-def magic_square(matrix):
-    
-    target_sum = sum_main_diag(matrix)
-
-    if sum_second_diag(matrix) != target_sum:       
+    sum_sec_diagonal = sum(sec_diagonal)
+    if sum_main_diagonal != sum_sec_diagonal:
         return False
 
-    for index in range(0, len(matrix)):        
-        if sum_row(matrix, index) != target_sum:           
+    for i in range(len(square)):
+        if sum_main_diagonal != sum(square[i]):
             return False
 
-    for index in range(0, len(matrix[0])):        
-        if sum_column(matrix, index) != target_sum:           
-            return False
+    sum_col = 0
+    i = 0
+    
+    for row in square:
+        sum_col += row[i]
+        i += 1
 
-    return True
+    return sum_main_diagonal == sum_col
 
 
-matrix = [ [1, 2, 3],
-           [4, 5, 6],
-           [7, 8, 9]]
-
-square1 = [ [23, 28, 21],
-            [22, 24, 26],
-            [27, 20, 25]]
-
-print(square1)
+square1 = [[23, 28, 21], [22, 24, 26], [27, 20, 25]]
 print(magic_square(square1))
